@@ -69,6 +69,7 @@ html {
 
 .flex-container {
     display: flex;
+    padding: 20px;
     width: 100%;
     gap: 20px;
     align-items: stretch;
@@ -82,11 +83,28 @@ html {
 
 .introduction-box {
     flex: 0 0 25%;
-    margin: 20px;
+    min-width: 0;
     border: 3px dashed rgb(90, 240, 15);
     background: rgba(0,0,0,0.6);
 }
 
 .item-class {
     flex: 0 0 60%;
+    min-width: 0;
+}
+
+@media (max-width: 786px) {
+    .flex-container {
+        flex-direction: column;
+    }
+
+    .item-class, .introduction-box {
+        flex: 1 1 auto;
+        width: auto;
+    }
+}
+
+.box, .introduction-box {
+    margin: 0;
+    padding: 20px;
 }
