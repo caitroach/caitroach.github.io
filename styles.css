@@ -1,5 +1,6 @@
 
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     background: black;
@@ -191,4 +192,26 @@ html {
   border: 2px solid #ffb6ff;
   border-radius: 12px;
   box-shadow: 0 0 18px hotpink;
+}
+
+.sparkle {
+    position: fixed; /* Position relative to the viewport */
+    pointer-events: none; /* Allows clicks to pass through the sparkle elements to the body */
+    width: 10px;
+    height: 10px;
+    background-color: white; /* Default color */
+    border-radius: 50%; /* Make them circular */
+    animation: sparkle-animation 0.8s forwards; /* Apply animation and keep the final state (hidden) */
+    opacity: 0;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--random-x), var(--random-y)) scale(0); /* Use CSS variables for random movement */
+    }
 }
