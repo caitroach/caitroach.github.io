@@ -75,6 +75,12 @@ html {
     align-items: stretch;
 }
 
+.rowstuffs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .box {
     margin: 20px;
     border: 3px dashed hotpink;
@@ -84,12 +90,18 @@ html {
 .introduction-box {
     flex: 0 0 25%;
     min-width: 0;
+    height: max-content;
     border: 3px dashed rgb(90, 240, 15);
     background: rgba(0,0,0,0.6);
 }
 
 .item-class {
     flex: 0 0 60%;
+    min-width: 0;
+}
+
+.subitem-class {
+    flex: 0 0 20%;
     min-width: 0;
 }
 
@@ -107,4 +119,76 @@ html {
 .box, .introduction-box {
     margin: 0;
     padding: 20px;
+}
+
+.y2k-player{
+  width: min(520px, 92vw);
+  margin: 30px auto;
+  padding: 14px 16px;
+  border: 2px dashed #ffb6ff;
+  background: rgba(0,0,0,.45);
+  box-shadow: 0 0 18px rgba(255,105,180,.25);
+  color: #ffb6ff;
+  font-family: "Comic Sans MS","Trebuchet MS",sans-serif;
+  text-align: center;
+}
+
+.y2k-player .btn{
+  background: rgba(255,182,255,.15);
+  border: 2px solid #ffb6ff;
+  color: #ffb6ff;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-shadow: 0 0 8px hotpink;
+}
+
+.y2k-player input[type="range"]{
+  width: 100%;
+  accent-color: #ffb6ff; /* modern browsers */
+}
+
+.y2k-player .bar{ margin: 12px 0; }
+.y2k-player .time{ font-size: 0.9rem; opacity: .9; }
+.y2k-player .vol{ margin-top: 10px; }
+
+
+.eq{
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.eq span{
+  width: 8px;
+  height: 20px;
+  background: #ffb6ff;
+  box-shadow: 0 0 8px hotpink;
+  animation: bounce 1s infinite ease-in-out;
+  animation-play-state: paused;
+}
+
+.eq span:nth-child(1){ animation-delay: 0s; }
+.eq span:nth-child(2){ animation-delay: .1s; }
+.eq span:nth-child(3){ animation-delay: .2s; }
+.eq span:nth-child(4){ animation-delay: .15s; }
+.eq span:nth-child(5){ animation-delay: .05s; }
+
+@keyframes bounce{
+  0%{ height: 8px; }
+  50%{ height: 36px; }
+  100%{ height: 8px; }
+}
+
+
+#canvas{
+  display:block;
+  margin: 20px auto;
+  width: min(700px, 92vw);
+  height: 180px;
+  background: rgba(0,0,0,.55);
+  border: 2px solid #ffb6ff;
+  border-radius: 12px;
+  box-shadow: 0 0 18px hotpink;
 }
