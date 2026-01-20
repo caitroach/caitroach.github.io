@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="skull.png" type="image/x-icon">
     <script src="musicplayer.js" defer></script>
+    <script src="equalizer.js" defer></script>
     <script src="pointersparkles.js"></script>
     <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"charset="UTF-8" />
@@ -56,7 +57,12 @@
     <span id="cur">0:00</span> / <span id="dur">0:00</span>
   </div>
 
-  <audio autoplay id="audio" preload="metadata" src="helena.mp3"></audio>
+  <audio id="audio" preload="metadata" src="helena.mp3"></audio>
+
+<div class="eq idle" id="eq" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
 </div>
 
   </div>
