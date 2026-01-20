@@ -1,9 +1,16 @@
 const audio = document.getElementById("audio");
 const playBtn = document.getElementById("play");
 const seek = document.getElementById("seek");
-const vol = document.getElementById("vol");
+const vol = document.getElementById("vol"); // might be null
 const cur = document.getElementById("cur");
 const dur = document.getElementById("dur");
+
+const eq = document.getElementById("eq");
+
+if (!audio || !playBtn || !seek || !cur || !dur) {
+  console.error("Player missing elements:", { audio, playBtn, seek, cur, dur, vol });
+}
+
 
 function fmt(t){
   if (!isFinite(t)) return "0:00";
@@ -12,13 +19,28 @@ function fmt(t){
   return `${m}:${s}`;
 }
 
+function setEqState(){
+  if (!eq) return;
+  eq.classList.toggle("idle", audio.paused);
+  eq.classList.toggle("playing", !audio.paused);
+}
+
 playBtn.addEventListener("click", async () => {
   if (audio.paused) { await audio.play(); }
   else { audio.pause(); }
 });
 
-audio.addEventListener("play", () => playBtn.textContent = "pause");
-audio.addEventListener("pause", () => playBtn.textContent = "play");
+audio.addEventListener("play", () => {
+  playBtn.textContent = "pause";
+  setEqState();
+});
+
+audio.addEventListener("pause", () => {
+  playBtn.textContent = "play";
+  setEqState();
+});
+
+audio.addEventListener("ended", setEqState);
 
 audio.addEventListener("loadedmetadata", () => {
   seek.max = audio.duration;
@@ -26,7 +48,6 @@ audio.addEventListener("loadedmetadata", () => {
 });
 
 audio.addEventListener("timeupdate", () => {
-  // don’t fight the user while dragging
   if (!seek.matches(":active")) seek.value = audio.currentTime;
   cur.textContent = fmt(audio.currentTime);
 });
@@ -35,9 +56,16 @@ seek.addEventListener("input", () => {
   audio.currentTime = Number(seek.value);
 });
 
-vol.addEventListener("input", () => {
+// Volume (only if you actually have the slider)
+if (vol) {
+  vol.addEventListener("input", () => {
+    audio.volume = Number(vol.value);
+  });
   audio.volume = Number(vol.value);
-});
+} else {
+  audio.volume = 1;
+}
 
-// initial volume
-audio.volume = Number(vol.value);
+
+// initial eq state
+setEqState();
