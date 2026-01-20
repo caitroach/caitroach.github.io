@@ -1,3 +1,5 @@
+(() => {
+
 const audio = document.getElementById("audio");
 const eq = document.getElementById("eq");
 const bars = eq ? [...eq.querySelectorAll("span")] : [];
@@ -89,3 +91,6 @@ audio.addEventListener("ended", stopRendering);
 
 // init
 stopRendering();
+
+
+})();
