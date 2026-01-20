@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="skull.png" type="image/x-icon">
     <script src="musicplayer.js" defer></script>
-    <script src="equalizer.js" defer></script>
     <script src="pointersparkles.js"></script>
     <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"charset="UTF-8" />
@@ -44,7 +43,8 @@
 
   <div class="item-class">
   
-  <p>my favourite song rn:</p>
+    <subheading>my favourite song rn:</subheading>
+
   <div class="y2k-player" id="player">
     <p>Helena Beat - Foster the People</p>
   <button class="btn" id="play">play</button>
@@ -59,13 +59,7 @@
 
   <audio id="audio" preload="metadata" src="helena.mp3"></audio>
 </div>
-
-<div class="eq idle" id="eq" aria-hidden="true">
-  <span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span>
-</div>
-
+  <canvas id="visualizer"></canvas>
   </div>
   </div>
 
