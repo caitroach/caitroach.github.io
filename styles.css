@@ -42,6 +42,12 @@ a:hover {
     50% { opacity: 0; }
 }
 
+.pee {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 /* Full-screen sparkles behind everything */
 #sparkle-canvas {
   position: fixed;
@@ -96,6 +102,16 @@ html {
     background: rgba(0,0,0,0.6);
 }
 
+.guestbox {
+    flex: 0 0 100%;
+    margin: 20px;
+    min-width:0;
+    height: max-content;
+    justify-content: center;
+    border: 3px dashed yellow;
+    background: rgba(0,0,0,0.6);
+}
+
 .item-class {
     flex: 0 0 60%;
     min-width: 0;
@@ -117,7 +133,7 @@ html {
     }
 }
 
-.box, .introduction-box {
+.box, .introduction-box, .guestbox {
     margin: 0;
     padding: 20px;
 }
