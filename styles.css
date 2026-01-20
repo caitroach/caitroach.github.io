@@ -75,6 +75,7 @@ html {
 }
 
 .flex-container {
+    justify-content: center;
     display: flex;
     padding: 20px;
     width: 100%;
@@ -139,7 +140,6 @@ html {
 }
 
 .y2k-player{
-  width: min(520px, 92vw);
   margin: 30px auto;
   padding: 14px 16px;
   border: 2px dashed #ffb6ff;
