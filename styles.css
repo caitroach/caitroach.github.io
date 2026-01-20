@@ -63,6 +63,7 @@ html, body {
 }
 body {
   margin: 0;
+  padding: 40px;
 }
 
 html {
@@ -78,7 +79,7 @@ html {
 .top-cont { 
     justify-content: center;
     display: flex;
-    width: 90%;
+    width: 100%;
     padding-left: 40px;
     padding-right: 40px; 
     gap: 20px;
