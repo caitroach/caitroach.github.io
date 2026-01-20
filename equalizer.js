@@ -1,4 +1,5 @@
 (() => {
+console.log("equalizer.js wrapped version loaded");
 
 const audio = document.getElementById("audio");
 const eq = document.getElementById("eq");
