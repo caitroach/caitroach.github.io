@@ -199,17 +199,12 @@ html {
 .eq span{
   display:block;
   width:6px;
-  height:6px;            /* JS will overwrite this */
+  height:6px;          /* JS will overwrite */
   border-radius:999px;
   background: currentColor;
   opacity:0.6;
 }
-
-
-/* optional: paused look */
-.eq.idle span{
-  opacity:0.4;
-}
+.eq.idle span{ opacity:0.35; }
 
 .eq.playing span{
   transform: none;

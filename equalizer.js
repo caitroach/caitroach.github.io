@@ -16,52 +16,43 @@ function showEqError(msg) {
 }
 
 function ensureAudioGraph() {
-  if (ctx) return;
+  if (ctx) return true;
 
   try {
     ctx = new (window.AudioContext || window.webkitAudioContext)();
     analyser = ctx.createAnalyser();
     analyser.fftSize = 512;
 
-    // Important: only ONE MediaElementSource per <audio> for the whole page
+    // IMPORTANT: only ONE MediaElementSource per <audio> on the page
     src = ctx.createMediaElementSource(audio);
-
     src.connect(analyser);
     analyser.connect(ctx.destination);
 
     freqData = new Uint8Array(analyser.frequencyBinCount);
+    return true;
   } catch (e) {
     showEqError("Equalizer init failed: " + (e?.message || e));
-    throw e; // stop here so we don't pretend it worked
+    return false;
   }
 }
 
-
 function render() {
+  // 🔑 Self-healing loop: always schedule the next frame once started
+  rafId = requestAnimationFrame(render);
+
   if (!analyser || !freqData || bars.length === 0) return;
 
   analyser.getByteFrequencyData(freqData);
 
-  // DEBUG: compute max so we know if we're getting real signal
-  let max = 0;
-  for (const x of freqData) if (x > max) max = x;
-
   const step = Math.floor(freqData.length / bars.length);
 
   for (let i = 0; i < bars.length; i++) {
-    const v = freqData[i * step] / 255;     // 0..1
-    const h = 4 + Math.round(v * 26);       // 4px..30px (very visible)
+    const v = freqData[i * step] / 255;  // 0..1
+    const h = 4 + Math.round(v * 26);    // 4..30px
     bars[i].style.height = `${h}px`;
     bars[i].style.opacity = `${0.25 + v * 0.75}`;
   }
-
-  // If max is always 0, you're getting silence into the analyser.
-  // Temporarily log it:
-  // console.log("EQ max:", max, "ctx:", ctx?.state);
-
-  rafId = requestAnimationFrame(render);
 }
-
 
 function startRendering() {
   if (rafId == null) render();
@@ -73,31 +64,28 @@ function stopRendering() {
     rafId = null;
   }
   for (const b of bars) {
-    b.style.transform = "scaleY(0.25)";
+    b.style.height = "6px";   // ✅ reset HEIGHT, not transform
     b.style.opacity = "0.4";
   }
 }
 
-// IMPORTANT: kick everything from the PLAY BUTTON click (user gesture)
 document.getElementById("play")?.addEventListener("click", async () => {
-  ensureAudioGraph();
+  if (!ensureAudioGraph()) return;
 
+  // resume needs user gesture
   if (ctx.state === "suspended") await ctx.resume();
 
-  // If we're about to play, start rendering immediately
-  // (even if the play event is slightly delayed)
   startRendering();
+});
 
-  // If audio ends up paused, stop will handle it on pause/end
+audio.addEventListener("play", async () => {
+  if (!ensureAudioGraph()) return;
+  if (ctx.state === "suspended") await ctx.resume();
+  startRendering();
 });
 
 audio.addEventListener("pause", stopRendering);
 audio.addEventListener("ended", stopRendering);
-audio.addEventListener("play", () => {
-  // make sure ctx is running even if play came from something else
-  if (ctx && ctx.state === "suspended") ctx.resume();
-  startRendering();
-});
 
 // init
 stopRendering();
