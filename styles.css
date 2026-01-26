@@ -20,6 +20,7 @@ h1 {
     margin-top: 40px;
     font-size: 3em;
     text-shadow: 0 0 10px hotpink;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .intro-text { 
@@ -188,34 +189,6 @@ html {
 .y2k-player .vol{ margin-top: 10px; }
 
 
-.eq{
-  display:flex;
-  align-items:flex-end;
-  gap:4px;
-  height:22px;
-  padding:6px 10px;
-  border:3px dashed #ffb6ff;
-  width:max-content;
-  margin: 8px auto;
-  box-shadow: 0 0 10px rgba(255,182,255,0.25);
-  color:#bdffb6;
-}
-
-.eq span{
-  display:block;
-  width:6px;
-  height:6px;          /* JS will overwrite */
-  border-radius:999px;
-  background: currentColor;
-  opacity:0.6;
-}
-.eq.idle span{ opacity:0.35; }
-
-.eq.playing span{
-  transform: none;
-}
-
-
 #visualizer {
     display: flex;
     border: 3px dashed greenyellow;
@@ -228,8 +201,6 @@ html {
 #canvas{
   display:block;
   margin: 20px auto;
-  width: min(700px, 92vw);
-  height: 180px;
   background: rgba(0,0,0,.55);
   border: 2px solid #b6ffb6;
   border-radius: 12px;
