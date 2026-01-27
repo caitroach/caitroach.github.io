@@ -195,7 +195,7 @@ html {
     padding: 14px 16px;
     margin: 30px auto;
     align-items: flex-end;
-    width: max-content;
+    width: 80%;
 }
 
 #canvas{
