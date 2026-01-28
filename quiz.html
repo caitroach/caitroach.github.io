@@ -1,0 +1,72 @@
+<!DOCTYPE html> 
+<head>
+    <link rel="stylesheet" href="quiz_styles.css">
+    <link rel="icon" href="assets/skull.png" type="image/x-icon">
+     <script src="pointersparkles.js"defer></script>
+     <script src="vamp_quiz_logic.js" defer></script>
+     <script src="evil_sparkles.js" defer></script>
+    <script async src="https://talk.hyvor.com/embed/embed.js" type="module"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"charset="UTF-8" />
+  <title>Personality Quiz</title>
+  <a href="index.html">home</a>
+  <a href="quiz.html">personality quizzes</a>
+  <a href="secrets.html">don't click this one</a>
+</head>
+
+<style type="text/css">* {cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1027.ani), url(https://cur.cursors-4u.net/nature/nat-11/nat1027.gif), auto !important;}</style><a href="https://www.cursors-4u.com/cursor/2012/01/29/pink-bobblehead-bunny.html" target="_blank" title="Pink Bobblehead Bunny"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Pink Bobblehead Bunny" style="position:absolute; top: 0px; right: 0px;" /></a>
+
+
+<body>
+
+    <canvas id="sparkly-canvas" aria-hidden="true"></canvas>
+    <div class="top-cont">
+    <img src="assets/drac.gif"; alt="dance"; width="150">
+    <h1>what kind of vampire are you?</h1>
+    <img src="assets/dracright.gif"; alt="dance"; width="150">
+    </div>
+
+    <p class="vamp-q">We've all wondered it: Am I an Edward? A Nosferatu? God forbid, a Blade? What will happen to me when I'm attacked by a creature of the night?<br><br></p>
+        
+    <p class="blink-vamp">LOOK NO FURTHER!<br></p>
+    
+    <p class="vamp-q">This quiz harnesses the power of mind-reading technology to digitally turn you (yes, YOU!) into a cold one, and foretell your fate...</p>
+
+    <div class="quiz-container">
+  <div id="question" class="question"></div>
+
+    <label class="option">
+        <input type="radio" name="option" value="1">
+        <span class="option1"></span>
+    </label>
+
+    <label class="option">
+        <input type="radio" name="option" value="2">
+        <span class="option2"></span>
+    </label>
+
+    <label class="option">
+        <input type="radio" name="option" value="3">
+        <span class="option3"></span>
+    </label>
+
+    <label class="option">
+        <input type="radio" name="option" value="4">
+        <span class="option4"></span>
+    </label>
+
+    <label class="option">
+        <input type="radio" name="option" value="5">
+        <span class="option5"></span>
+    </label>
+
+  <div class="controls">
+    <button type="button" class="previous">Previous</button>
+    <button type="button" class="next">Next</button>
+  </div>
+  <div class="tracking"></div>
+</div>
+
+<div class="result"></div>
+
+
+</body>

@@ -16,11 +16,23 @@ subheading {
     text-shadow: 0 0 10px yellow;
 }
 
+.vamp-q {
+    font-size: 1.5em;
+    color: hotpink;
+    text-shadow: 0 0 10px red;
+}
+
+.blink-vamp { 
+    animation: blink 1s steps(1) infinite;
+    font-size: 1.5em;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px red;
+}
+
 h1 {
     margin-top: 40px;
     font-size: 3em;
     text-shadow: 0 0 10px hotpink;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .intro-text { 
@@ -30,15 +42,45 @@ h1 {
     margin: 10px;
 }
 
-a {
-    color: #7df9ff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
 a:hover {
     color: hotpink;
     text-shadow: 0 0 5px white;
+}
+
+a {
+    color: aqua;
+    padding: 50px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+head { 
+    align-items: center;
+}
+
+.nav-btn {
+  display: inline-block;   /* IMPORTANT or borders get weird */
+  padding: 8px 14px;       /* THIS is the magic sauce */
+  font-size: 1rem;
+  color: rgb(228, 255, 56);
+  text-decoration: none;
+  background-color: #0d4fa5;
+  border: 3px solid rgb(90, 240, 15);
+  margin: 5px;
+}
+
+.nav-btn:hover {
+  background: purple;
+  box-shadow: 0 0 10px lime;
+  transform: translateY(-2px);
+}
+
+
+.socials { 
+    align-items: center;
+    padding: 30px;
+    border-radius: 20%;
+    border: 3px solid pink;
 }
 
 .blink {

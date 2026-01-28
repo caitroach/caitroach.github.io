@@ -1,7 +1,11 @@
 (() => {
   const canvas = document.getElementById("sparkle-canvas");
-  if (!canvas) return;
+  if (!canvas) {
+    console.log("No canvas found");
+    return;
+  }
 
+  console.log("canvas found");
   const ctx = canvas.getContext("2d", { alpha: true });
 
   const DPR = Math.max(1, Math.min(2, window.devicePixelRatio || 1));

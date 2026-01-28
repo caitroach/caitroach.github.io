@@ -1,0 +1,271 @@
+#sparkly-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;          
+  pointer-events: none;  
+}
+
+.quiz-container {
+    padding: 3rem;
+    text-shadow: red;
+    width: 60%;
+    border: solid 3px rgb(255, 0, 0);
+    border-radius: 12%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    background: black;
+}
+
+title {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  color: #00000050;
+  font-weight: 400;
+  font-size: 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.question {
+  margin: 2rem 0;
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.tracking { color: white; font-size: 1em}
+
+.option {
+  text-align: left;
+  padding: 1rem;
+  color: white;
+  font-size: 20px;
+  width: 80%;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+.option:hover {
+  background: rgb(232, 90, 114);
+}
+.option input:checked .option {
+  background: #08038c;
+  color: #000;
+}
+.controls > * {
+  margin: 1rem;
+}
+button {
+  padding: 0.5rem;
+  border: none;
+  width: 30%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-weight: 300;
+  font-size: 20px;
+  font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+  color: white;
+  outline: none;
+}
+button.previous {
+  background: rgb(255, 0, 0, 50%);
+}
+button.next {
+  background: #3c91e6;
+}
+button.restart {
+  background: #0cf574;
+  color: #00000050;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  transition: all 0.4s;
+}
+button.restart:hover {
+  color: #00000098;
+}
+button:hover,
+button:focus {
+  background: purple;
+  box-shadow: 0 0 10px lime;
+  transform: translateY(-2px);
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+.final-score {
+  color: lightblue;
+}
+.summary {
+  font-size: 30px;
+  color: white;
+  background: black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+.summary h1 {
+  align-self: center;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #ffb6ff;
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    text-align: center;
+    cursor: url(https://cur.cursors-4u.net/nature/nat-11/nat1033.gif), auto !important;
+}
+
+subheading {
+    font-family: "Comic Sans MS", "Trebuchet MS", sans-serif;
+    font-size:35px;
+    text-shadow: 0 0 10px yellow;
+}
+
+.vamp-q {
+    font-size: 1.5em;
+    color: hotpink;
+    text-shadow: 0 0 10px red;
+}
+
+.blink-vamp { 
+    animation: blink 1s steps(1) infinite;
+    font-size: 1.5em;
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px red;
+}
+
+h1 {
+    margin-top: 40px;
+    font-size: 3em;
+    text-shadow: 0 0 10px hotpink;
+}
+
+a:hover {
+    color: hotpink;
+    text-shadow: 0 0 5px white;
+}
+
+a {
+    color: aqua;
+    padding: 50px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+head { 
+    align-items: center;
+}
+
+.blink {
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+}
+
+
+html {
+  overflow:   scroll;
+  font-size: 110%;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*after { box-sizing: inherit;}
+
+html, body {
+  height: 100%;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.top-cont { 
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px; 
+    gap: 20px;
+    align-items: stretch;
+}
+
+.flex-container {
+    justify-content: center;
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.rowstuffs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.box {
+    margin: 20px;
+    border: 40px dashed hotpink;
+    background: rgba(0,0,0,0.6);
+}
+
+#canvas{
+  display:block;
+  align-self: center;
+  margin: 20px auto;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid #b6ffb6;
+  border-radius: 12px;
+  box-shadow: 0 0 18px rgb(3, 137, 26);
+}
+
+.sparkle {
+    position: fixed; /* Position relative to the viewport */
+    pointer-events: none; /* Allows clicks to pass through the sparkle elements to the body */
+    width: 10px;
+    height: 10px;
+    background-color: white; /* Default color */
+    border-radius: 50%; /* Make them circular */
+    animation: sparkle-animation 0.8s forwards; /* Apply animation and keep the final state (hidden) */
+    opacity: 0;
+}
+
+input[type="radio"] {
+  accent-color: #f321e5; 
+}
+
+
+@keyframes sparkle-animation {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--random-x), var(--random-y)) scale(0); /* Use CSS variables for random movement */
+    }
+}
